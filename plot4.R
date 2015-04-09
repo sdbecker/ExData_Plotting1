@@ -10,19 +10,22 @@
 
 par(mfrow = c(2,2))
 
+label_Size = 0.6 # adjust the size of the label text
+
 #Plot the four graphs so they will appear in row order
 
 # First plot
-plot(elecPowSub$Date,elecPowSub$Global_active_power, type = 'l', ylab = "Global Active Power (kilowatts)", xlab = "")
+plot(elecPowSub$Date,elecPowSub$Global_active_power, type = 'l', ylab = "Global Active Power (kilowatts)", xlab = "", cex.lab = label_Size)
 
 #Second plot
-with(elecPowSub, plot(Date,Voltage, type = 'l', xlab = 'datetime'))
+with(elecPowSub, plot(Date,Voltage, type = 'l', xlab = 'datetime',
+                      cex.lab = label_Size))
 
 #Third plot
 
 with(elecPowSub, plot(Date, Sub_metering_1, type = 'l',
                       ylab = "Energy sub metering",
-                      xlab = ""))
+                      xlab = "", cex.lab = label_Size))
 with(elecPowSub, lines(Date, Sub_metering_2, col = "red"))
 with(elecPowSub, lines(Date, Sub_metering_3, col = "blue"))
 
@@ -36,7 +39,7 @@ legend("topright",
 #Fourth plot
 
 with(elecPowSub, plot(Date,Global_reactive_power, type = 'l',
-                      xlab = 'datetime'))
+                      xlab = 'datetime', cex.lab = label_Size))
 
 # Save the screen device to the PNG device with 480/480 pixels width and height
 
